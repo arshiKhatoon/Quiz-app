@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import ModalProvider from "@/components/modals/modal-provider";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,12 +26,46 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div className="relative w-full flex item-center justify-center">
+        
+         </div>
+        <ModalProvider></ModalProvider>
         {children}
+     
+      </body>
+    </html> 
+  );
+}
+
+/*import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import ModalProvider from "@/components/modals/modal-provider";
+import { Toaster } from "@/components/ui/sonner";
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Quizy - Test Your Knowledge!",
+  description: "A Quiz App built using Next JS",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ModalProvider />
+        <main>{children}</main>
+        <Toaster position="top-center" duration={5000} richColors />
       </body>
     </html>
   );
-}
+}*/
